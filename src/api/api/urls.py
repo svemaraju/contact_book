@@ -43,7 +43,6 @@ api_namespaced_urls = [
 urlpatterns = [
     url(r'^api/v1/', include([
         url(r'', include(api_namespaced_urls)),
-        url(r'^$', home, name='home'),
     ],
     ))
 ]
@@ -51,5 +50,6 @@ urlpatterns = [
 urlpatterns = format_suffix_patterns(urlpatterns)
 urlpatterns += [
     path('_admin/', admin.site.urls),
+    url(r'^$', home, name='home'),
 ]
 
