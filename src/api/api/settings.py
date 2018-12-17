@@ -27,7 +27,7 @@ SECRET_KEY = 'k5dmk$)hnc3+0n3xuci4ed5tgf32g$ob^611ypwpcc$hkukvm4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [".herokuapp.com"]
+ALLOWED_HOSTS = [".herokuapp.com", "127.0.0.1"]
 
 
 # Application definition
@@ -78,7 +78,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'api.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
@@ -88,6 +87,11 @@ DATABASES = {
         default=config('DATABASE_URL')
     )
 }
+
+try:
+    from api.settings_local import DEBUG, DATABASES
+except:
+    pass
 
 
 # Password validation
