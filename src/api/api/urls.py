@@ -20,7 +20,7 @@ from django.contrib import admin
 from django.views.static import serve
 from rest_framework.urlpatterns import format_suffix_patterns
 
-
+from api.views import home
 
 
 def generate_api_url_include(name):
@@ -42,7 +42,8 @@ api_namespaced_urls = [
 
 urlpatterns = [
     url(r'^api/v1/', include([
-        url(r'', include(api_namespaced_urls))
+        url(r'', include(api_namespaced_urls)),
+        url(r'^$', home, name='home'),
     ],
     ))
 ]
