@@ -30,7 +30,7 @@ class UserManager(DjangoUserManager):
 
 class User(TimestampedModel, AbstractBaseUser, PermissionsMixin):
     """
-        Represents a user within the Contact Book system
+        Represents a user within the Contact Book App.
     """
 
     first_name = models.CharField(max_length=255, null=True, blank=True)
